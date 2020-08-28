@@ -7,7 +7,13 @@ public class Words {
 	private TreeSet<String> words = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 
 	public void addWord(String word) {
-		words.add(word);
+		if(word.matches("([A-Za-z])+")){
+			 if(!words.add(word))
+				 throw new IllegalArgumentException();
+		}
+		else
+		throw new IllegalArgumentException(word);
+		
 	}
 
 	public String[] getWordsStartWith(String prefix) {
@@ -37,3 +43,4 @@ public class Words {
 	}
 
 }
+
