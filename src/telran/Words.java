@@ -13,6 +13,9 @@ public class Words {
 	}
 
 	public String[] getWordsStartWith(String prefix) {
+		if(prefix==null||!prefix..matches("[A-Za-z]+")){
+			throw new IllegalArgumentException();
+		}
 		char[] chars = prefix.toLowerCase().toCharArray();
 		chars[chars.length - 1] = (char) (chars[chars.length - 1] + 1);
 		String last = new String(chars);
