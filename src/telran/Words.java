@@ -13,9 +13,10 @@ public class Words {
 	}
 
 	public String[] getWordsStartWith(String prefix) {
-		char[] chars = prefix.toCharArray();
-		String last = (new String(chars[chars.length - 1] = (char) (chars[chars.length - 1].toLowerCase() + 1));// change last char to next ( abc -> abd)
-		return words.subSet(first, true, last, false).toArray(new String[0]);
+		char[] chars = prefix.toLowerCase().toCharArray();
+		chars[chars.length - 1] = (char) (chars[chars.length - 1] + 1);
+		String last = new String(chars);
+		return words.subSet(prefix, true, last, false).toArray(new String[0]);
 	}
 
 	public int size() {
